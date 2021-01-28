@@ -8,24 +8,23 @@
 #ifndef SDDS_EMPLOYEE_H_
 #define SDDS_EMPLOYEE_H_
 
-#define DATAFILE "employees.csv"
-
 #include "File.h"
 #include "cstring.h"
 
-namespace sdds 
-{
-   struct Employee 
-   {
-      char* m_name;
-      int m_empNo;
-      double m_salary;
-   };
+#define DATAFILE "employees.csv"
+
+namespace sdds {
+    struct Employee {
+        char* m_name;
+        int m_empNo;
+        double m_salary;
+    };
+
 
    //sorts the dynamic array of employees based on the GPA of the employees.
    void sort();
    // loads a employee structue with its values from the file
-   bool load(Employee& empolyee);
+   bool load(Employee& employee);
    // allocates the dyanmic array of employees and loads all the file
    // recoreds into the array
    bool load();
