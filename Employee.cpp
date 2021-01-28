@@ -41,8 +41,9 @@ namespace sdds {
    {
       bool ok = false;
       int x = 0;
-      
-      if (openFile(DATAFILE)) {
+
+      if (openFile(DATAFILE)) 
+      {
          /* 
           Set the noOfEmployees to the number of recoreds in the file.
           dyanamically allocated an array of employees into the global
@@ -60,8 +61,8 @@ namespace sdds {
          noOfEmployees = noOfRecords() + 1;
          employees = new Employee[noOfEmployees]{};
 
-            for (x = 0; x < noOfEmployees; x++) {
-
+            for (x = 0; x < noOfEmployees; x++) 
+            {
                 if (!load(employees[x])) {
 
                     cout << "Error: incorrect number of records read; the data is possibly corrupted"<< endl;
@@ -85,9 +86,9 @@ namespace sdds {
 
 
 // TODO: Implementation for the display functions go here
-   void display (const Employee& employee)
+   void display(const Employee& employee) 
    {
-      printf("%d: %s, %.1lf\n", employee.m_empNo, employee.m_name, employee.m_salary);
+      cout << employee.m_empNo << ": " << employee.m_name << ", " << employee.m_salary << endl;
    }
 
 
