@@ -58,29 +58,28 @@ namespace sdds {
           close the file
           */
          noOfEmployees = noOfRecords() + 1;
-         employees = new Employee[noOfEmployees];
+         employees = new Employee[noOfEmployees]{};
 
-         for (x = 0; x < noOfEmployees; x++)
-         {
+            for (x = 0; x < noOfEmployees; x++) {
 
-            if(!(load(employees[x])))
-            {
-               cout << "Error: incorrect number of records read; the data is possibly corrupted\n";
-               return false;
+                if (!load(employees[x])) {
+
+                    cout << "Error: incorrect number of records read; the data is possibly corrupted"<< endl;
+                    
+                    closeFile();
+                    return false;
+                }
             }
-         }
-         ok = true;
+            ok = true;
 
-         closeFile();
-      }
-
-      else 
-      {
-         cout << "Could not open data file: " << DATAFILE<< endl;
-      }
-
-      return ok;
-   }
+            closeFile();
+        }
+        else 
+        {
+            cout << "Could not open data file: " << DATAFILE << endl;
+        }
+        return ok;
+    }
 
 
 
@@ -97,18 +96,27 @@ namespace sdds {
    void display()
    {
       sort();
+      int y = 0;
 
       std::cout << "Employee Salary report, sorted by employee number\n";
       std::cout << "no- Empno, Name, Salary\n";
       std::cout << "-------------------------------------------------\n";
 
-      for (int x = 0; x < noOfEmployees; x++)
-      {
-         std::cout << x + 1 << "- ";
+        for (int x = 0; x < noOfEmployees; x++) 
+        {
 
-         display(employees[x]);
-      }
-   }
+            if (employees[x].m_name[0] != '\0') 
+            {
+                cout << x + 1 + y << "- ";
+                display(employees[x]);
+            }
+            
+            else 
+            {
+               y--; 
+            }
+        }
+    }
 
 
 
@@ -116,7 +124,7 @@ namespace sdds {
    // TODO: Finish the implementation of the 1 arg load function which
    // reads one employee record from the file and loads it into the employee reference
    // argument
-   bool load(Employee& employee) 
+   bool load(Employee& Employee) 
    {
       bool ok = false;
       char name[128];
@@ -127,19 +135,19 @@ namespace sdds {
               make sure the "ok" flag is set to true
          end if
       */
-     if (read(employee.m_empNo))
+     if (read(Employee.m_empNo))
      {
 
-        if (read(employee.m_salary))
+        if (read(Employee.m_salary))
         {
 
            if (read(name))
            {
               int x = strLen(name);
 
-              employee.m_name = new char[x+1];
-              strCpy(employee.m_name, name);
-              employee.m_name[x] = '\0';
+              Employee.m_name = new char[x+1];
+              strCpy(Employee.m_name, name);
+              Employee.m_name[x] = '\0';
 
               ok = true;
            }
