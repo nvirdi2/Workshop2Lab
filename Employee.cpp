@@ -82,9 +82,7 @@ namespace sdds
         else 
         {
             cout << "Could not open data file: " << DATAFILE << endl;
-        }
-
-    return ok;
+        } return ok;
     }
 
 
@@ -94,7 +92,7 @@ namespace sdds
     bool load(Employee& Employee) 
     {
         bool ok = false;
-        char name[128] = {'\0'};
+        char name[128];
 
         /* if reading of employee number, salay and name are successful
               allocate memory to the size of the name + 1
@@ -112,14 +110,13 @@ namespace sdds
                     {
                     int x = strLen(name);
 
-                    Employee.m_name = new char[x+1];
+                    Employee.m_name = new char [x+1];
                     strCpy(Employee.m_name, name);
 
                     ok = true;
                 }
             }
-        }
-        return ok;
+        } return ok;
     }
 
 
@@ -133,7 +130,7 @@ namespace sdds
         cout << "------------------------------------------------" << endl;
 
         int l = 0;
-        int i = 0;
+        int x = 0;
 
         for (l = 0; l < noOfEmployees; l++)
         {
@@ -141,13 +138,13 @@ namespace sdds
             if (employees[l].m_name[0] != '\0') 
             {
 
-                cout << l + 1 + i << "- ";
+                cout << l + 1 + x << "- ";
                 display(employees[l]);
             }
 
             else 
             { 
-                i--; 
+                x--; 
             }
         }
     }
