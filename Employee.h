@@ -20,6 +20,7 @@ namespace sdds {
         double m_salary;
     };
 
+
    //sorts the dynamic array of employees based on the GPA of the employees.
    void sort();
    // loads a employee structue with its values from the file
