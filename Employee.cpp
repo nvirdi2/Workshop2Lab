@@ -92,7 +92,7 @@ namespace sdds
     bool load(Employee& Employee) 
     {
         bool ok = false;
-        char name[128];
+        char name[128] = {'\0'};
 
         /* if reading of employee number, salay and name are successful
               allocate memory to the size of the name + 1
