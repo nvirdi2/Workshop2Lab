@@ -110,7 +110,7 @@ namespace sdds
                 {
                     if (read(name)) 
                     {
-                    int  = strLen(name);
+                    int x = strLen(name);
 
                     Employee.m_name = new char[x+1];
                     strCpy(Employee.m_name, name);
@@ -132,7 +132,7 @@ namespace sdds
         cout << "no- Empno, Name, Salary" << endl;
         cout << "------------------------------------------------" << endl;
 
-        int l = 0
+        int l = 0;
         int i = 0;
 
         for (l = 0; l < noOfEmployees; l++)
@@ -172,4 +172,4 @@ namespace sdds
 
         delete[] employees;
         }
-}
+    }
