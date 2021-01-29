@@ -14,6 +14,7 @@ namespace sdds
 {
    FILE* fptr;
 
+
    bool openFile(const char filename[]) 
    {
       fptr = fopen(filename, "r");
@@ -49,19 +50,16 @@ namespace sdds
       if (fscanf(fptr, "%d,", &employeeNumber) != 0) 
       {
          return 1;
-      }
-
-        return 0;
+      } return 0;
    }
 
 
-   bool read(char* Name) 
+   bool read(char* employeeName) 
    {
-      if (fscanf(fptr, "%[^\n]\n", Name) != 0) 
+      if (fscanf(fptr, "%[^\n]\n", employeeName) != 0) 
       {
          return 1;
-      }
-        return 0;
+      } return 0;
    }
 
 
@@ -70,7 +68,6 @@ namespace sdds
       if (fscanf(fptr, "%lf,", &employeeSalary) != 0) 
       {
          return 1;
-      }
-        return 0;
-      }
+      } return 0;
+   }
 }
