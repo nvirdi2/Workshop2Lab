@@ -19,6 +19,6 @@ namespace sdds
    // TODO: Declare read prototypes
    bool read (double& employeeSalary);
    bool read (int& employeeNumber);
-   bool read (char* Name);
+   bool read (char* employeeName);
 }
 #endif // !SDDS_FILE_H_
